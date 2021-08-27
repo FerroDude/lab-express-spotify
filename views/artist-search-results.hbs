@@ -2,17 +2,29 @@
   {{#each artists}}
     <div class='artist'>
 
-      {{#each images}}
+      {{#if images}}
+        {{#each images}}
+          {{#if @first}}
+            <picture>
+              <img src='{{url}}' alt='Erro de imagem' />
+            </picture>
+          {{/if}}
 
-        {{#if @first}}
-          <picture>
-            <img src='{{url}}' alt='Erro de imagem' />
-          </picture>
-        {{/if}}
+        {{/each}}
+      {{else}}
+        <picture>
+          <img
+            src='https://raw.githubusercontent.com/codetheweb/aoede/main/.github/logo.png'
+            alt='Erro de imagem'
+          />
+        </picture>
+      {{/if}}
 
-      {{/each}}
-      <h3>Artist: {{name}} </h3>
-      <button>See albumns</button>
+      <h3>{{name}}</h3>
+      <form action='/album-results'>
+        <button class='button'>See albumns</button>
+      </form>
+
     </div>
   {{/each}}
 </div>

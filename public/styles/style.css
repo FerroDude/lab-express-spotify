@@ -9,11 +9,15 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 2em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   gap: 2em;
 }
 
@@ -22,8 +26,18 @@ body {
   flex-direction: column;
   max-width: 15em;
   align-items: center;
+  min-height: 15em;
+  min-width: 15em;
+}
+
+.button {
+  background-color: lightgreen;
 }
 
 img {
   width: 15em;
+}
+
+h3 {
+  text-align: center;
 }
