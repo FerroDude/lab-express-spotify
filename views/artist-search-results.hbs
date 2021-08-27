@@ -1,0 +1,18 @@
+<div class='container'>
+  {{#each artists}}
+    <div class='artist'>
+
+      {{#each images}}
+
+        {{#if @first}}
+          <picture>
+            <img src='{{url}}' alt='Erro de imagem' />
+          </picture>
+        {{/if}}
+
+      {{/each}}
+      <h3>Artist: {{name}} </h3>
+      <button>See albumns</button>
+    </div>
+  {{/each}}
+</div>

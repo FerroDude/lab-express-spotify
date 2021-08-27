@@ -28,6 +28,27 @@ app.use(express.static(__dirname + '/public'));
 // setting the spotify-api goes here:
 
 // Our routes go here:
+app.get('/', (request, response) => {
+  response.render('home');
+});
+
+app.get('/artist-search', (request, response) => {
+  let artist = request.query.artist;
+  spotifyApi
+    .searchArtists(artist)
+    .then((data) => {
+      console.log('The received data from the API: ', data.body.artists);
+
+      response.render('artist-search-results', {
+        artists: data.body.artists.items
+      });
+    })
+    .catch((err) =>
+      console.log('The error while searching artists occurred: ', err)
+    );
+
+  //
+});
 
 app.listen(3000, () =>
   console.log('My Spotify project running on port 3000 🎧 🥁 🎸 🔊')

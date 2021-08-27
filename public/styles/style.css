@@ -4,3 +4,26 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+
+body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2em 0;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+
+.artist {
+  display: flex;
+  flex-direction: column;
+  max-width: 15em;
+  align-items: center;
+}
+
+img {
+  width: 15em;
+}
