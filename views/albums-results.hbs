@@ -1,5 +1,5 @@
 <div class='container'>
-  {{#each artists}}
+  {{#each albums}}
     <div class='artist'>
 
       {{#if images}}
@@ -22,9 +22,8 @@
 
       <h3>{{name}}</h3>
       <form action='/albums/{{id}}'>
-        <button class='button'>See albums</button>
+        <button class='button'>See album tracks</button>
       </form>
-
     </div>
   {{/each}}
 </div>
