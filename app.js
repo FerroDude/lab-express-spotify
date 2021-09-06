@@ -40,7 +40,6 @@ app.get('/artist-search', (request, response) => {
       response.render('artist-search-results', {
         artists: data.body.artists.items
       });
-      console.log(data.body.artists.items);
     })
     .catch((err) =>
       console.log('The error while searching artists occurred: ', err)
@@ -57,13 +56,18 @@ app.get('/albums/:id', (request, response) => {
       response.render('albums-results', {
         albums: data.body.items
       });
-      console.log(data.body);
     })
     .catch((err) =>
       console.log('The error while searching albums occurred: ', err)
     );
+});
 
-  //
+app.get('/album-tracks/:id', (request, response) => {
+  const id = request.params.id;
+  spotifyApi.getAlbumTracks(id).then((tracks) => {
+    response.render('tracks-results', { tracks: tracks.body.items });
+    console.log(tracks.body.items);
+  });
 });
 
 app.listen(3000, () =>
